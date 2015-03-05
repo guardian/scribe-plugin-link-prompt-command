@@ -1,6 +1,6 @@
 {
   "name": "scribe-plugin-link-prompt-command",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "main": "src/scribe-plugin-link-prompt-command.js",
   "dependencies": {
     "lodash-amd": "~2.4.1"
