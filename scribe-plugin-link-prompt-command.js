@@ -18,7 +18,7 @@ define('scribe-plugin-link-prompt-command',[],function () {
         var anchorNode = selection.getContaining(function (node) {
           return node.nodeName === this.nodeName;
         }.bind(this));
-        var initialLink = anchorNode ? anchorNode.href : 'http://';
+        var initialLink = anchorNode ? anchorNode.href : '';
         var link = window.prompt('Enter a link.', initialLink);
 
         if (anchorNode) {
