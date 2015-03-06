@@ -1,17 +1,17 @@
 {
   "name": "scribe-plugin-link-prompt-command",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "main": "src/scribe-plugin-link-prompt-command.js",
   "dependencies": {
     "lodash-amd": "~2.4.1"
   },
   "devDependencies": {
-    "plumber": "~0.3.0",
-    "plumber-all": "~0.3.0",
-    "plumber-glob": "~0.3.0",
-    "plumber-requirejs": "~0.3.0",
-    "plumber-uglifyjs": "~0.3.0",
-    "plumber-write": "~0.3.0"
+    "plumber": "~0.4.0",
+    "plumber-all": "~0.4.0",
+    "plumber-glob": "~0.4.0",
+    "plumber-requirejs": "~0.4.0",
+    "plumber-uglifyjs": "~0.4.0",
+    "plumber-write": "~0.4.0"
   },
   "repository": {
     "type": "git",
