@@ -32,11 +32,12 @@ define(function () {
 
         if (link) {
           // Prepend href protocol if missing
-          // For emails we just look for a `@` symbol as it is easier.
+          // If a http/s or mailto link is provided, then we will trust that an link is valid
           var urlProtocolRegExp = /^https?\:\/\//;
-          // We don't want to match URLs that sort of look like email addresses
-          if (! urlProtocolRegExp.test(link)) {
-            if (! /^mailto\:/.test(link) && /@/.test(link)) {
+          var mailtoProtocolRegExp = /^mailto\:/;
+          if (! urlProtocolRegExp.test(link) && ! mailtoProtocolRegExp.test(link)) {
+            // For emails we just look for a `@` symbol as it is easier.
+            if (/@/.test(link)) {
               var shouldPrefixEmail = window.confirm(
                 'The URL you entered appears to be an email address. ' +
                 'Do you want to add the required “mailto:” prefix?'
