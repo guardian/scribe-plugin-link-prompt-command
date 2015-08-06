@@ -11,10 +11,14 @@
     "plumber-glob": "~0.4.0",
     "plumber-requirejs": "~0.4.0",
     "plumber-uglifyjs": "~0.4.0",
-    "plumber-write": "~0.4.0"
+    "plumber-write": "~0.4.0",
+    "mocha": "~2"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/guardian/scribe-plugin-link-prompt-command.git"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha"
   }
 }
