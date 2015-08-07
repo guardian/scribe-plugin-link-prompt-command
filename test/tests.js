@@ -14,4 +14,8 @@ describe('Plugin', function() {
   it('should accept options', function() {
     assert.isFunction(plugin({}));
   });
+
+  it('should accept a validation function', function() {
+    assert.isFunction(plugin({validation: function(url) {return undefined; }}));
+  });
 });
