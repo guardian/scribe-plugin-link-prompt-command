@@ -12,7 +12,9 @@
     "plumber-requirejs": "~0.4.0",
     "plumber-uglifyjs": "~0.4.0",
     "plumber-write": "~0.4.0",
-    "mocha": "~2"
+    "mocha": "~2",
+    "node-amd-require": "^0.2.2",
+    "chai": "*"
   },
   "repository": {
     "type": "git",
