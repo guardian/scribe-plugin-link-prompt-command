@@ -4,12 +4,13 @@ define('scribe-plugin-link-prompt-command',[],function () {
    * This plugin adds a command for creating links, including a basic prompt.
    */
 
-  'use strict';
+  
 
-  return function () {
+  return function (options) {
+    var options = options || {};
+
     return function (scribe) {
       var linkPromptCommand = new scribe.api.Command('createLink');
-
 
       linkPromptCommand.nodeName = 'A';
 
@@ -27,6 +28,15 @@ define('scribe-plugin-link-prompt-command',[],function () {
           link = window.prompt('Enter a link.', initialLink);
         } else {
           link = passedLink;
+        }
+
+        if(options && options.validation) {
+          var validationResult = options.validation(link);
+
+          if(!validationResult.valid) {
+            window.alert(validationResult.message || 'The link is not valid');
+            return;
+          }
         }
 
         if (anchorNode) {
@@ -85,5 +95,6 @@ define('scribe-plugin-link-prompt-command',[],function () {
   };
 
 });
+
 
 //# sourceMappingURL=scribe-plugin-link-prompt-command.js.map
