@@ -1,3 +1,7 @@
+# 0.3.1
+
+The plugin now checks whether there are any non-whitespace characters in the supplied link.
+
 # 0.3.0
 
 The plugin will now accept an optional validation rule that allows proposed links to be vetoed. See the README for more information.
