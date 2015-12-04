@@ -71,13 +71,13 @@ define(['./checks'], function (checks) {
               if (shouldPrefixEmail) {
                 link = 'mailto:' + link;
               }
-            } else if (/+/.test(link) || isNaN(link) ) {
+            } else if (/\+\d+/.test(link)) {
               var shouldPrefixTel = window.confirm(
                 'The URL you entered appears to be a telephone number.' +
                 'Do you want to add the required “tel:” prefix?'
               );
-              if (shouldPrefixTel) { 
-                link = 'tel:' + link; 
+              if (shouldPrefixTel) {
+                link = 'tel:' + link;
               }
             } else {
               var shouldPrefixLink = window.confirm(
