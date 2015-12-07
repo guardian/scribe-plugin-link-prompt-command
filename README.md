@@ -23,6 +23,10 @@ Run unit tests with the following:
 npm run test
 ```
 
+### Running locally
+
+First run `bower install` to add the dependencies locally. Then load `examples/amd.html` into a browser and you should have a minimal local running version of the plugin.
+
 ## Installation
 
 ```
