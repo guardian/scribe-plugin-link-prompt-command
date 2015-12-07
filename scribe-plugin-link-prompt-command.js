@@ -72,8 +72,10 @@ define('scribe-plugin-link-prompt-command',['./checks'], function (checks) {
           // If a http/s or mailto link is provided, then we will trust that an link is valid
           var urlProtocolRegExp = /^https?\:\/\//;
           var mailtoProtocolRegExp = /^mailto\:/;
-          if (! urlProtocolRegExp.test(link) && ! mailtoProtocolRegExp.test(link)) {
+          var telProtocolRegExp = /^tel\:/;
+          if (! urlProtocolRegExp.test(link) && ! mailtoProtocolRegExp.test(link) && ! telProtocolRegExp.test(link) ) {
             // For emails we just look for a `@` symbol as it is easier.
+            // For tel numbers check for + and numerical values
             if (/@/.test(link)) {
               var shouldPrefixEmail = window.confirm(
                 'The URL you entered appears to be an email address. ' +
@@ -81,6 +83,14 @@ define('scribe-plugin-link-prompt-command',['./checks'], function (checks) {
               );
               if (shouldPrefixEmail) {
                 link = 'mailto:' + link;
+              }
+            } else if (/\+\d+/.test(link)) {
+              var shouldPrefixTel = window.confirm(
+                'The URL you entered appears to be a telephone number.' +
+                'Do you want to add the required “tel:” prefix?'
+              );
+              if (shouldPrefixTel) {
+                link = 'tel:' + link;
               }
             } else {
               var shouldPrefixLink = window.confirm(
