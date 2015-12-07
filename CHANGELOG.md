@@ -1,3 +1,9 @@
+# 0.4.0
+
+Adds support for telephone number guessing and the `tel` protocol.
+
+Based on a contribution from [Chris Monkman](https://github.com/SgtOddball). Thanks!
+
 # 0.3.1
 
 The plugin now checks whether there are any non-whitespace characters in the supplied link.
