@@ -40,6 +40,19 @@ describe('Email links', function() {
       var result = prompts.process(fakeDisagreeableWindow, 'user@example.com');
       assert.equal(result, 'user@example.com');
     });
-  })
+  });
 });
 
+describe('Telephone links', function() {
+  describe('add the tel protocol', function() {
+    it('if user agrees', function() {
+      var result = prompts.process(fakeAgreeableWindow, '+447805123456');
+      assert.equal(result, 'tel:+447805123456');
+    });
+
+    it('but not if the user disagrees', function() {
+      var result = prompts.process(fakeDisagreeableWindow, '+447805123456');
+      assert.equal(result, '+447805123456');
+    });
+  });
+});

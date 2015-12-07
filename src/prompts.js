@@ -33,8 +33,6 @@ define([], function() {
     for (var i = 0; i < userPrompts.length; i++) {
       var prompt = userPrompts[i];
 
-      console.log(prompt);
-      console.log(prompt.regexp.test(link));
       if(prompt.regexp.test(link)) {
         var userResponse = window.confirm(prompt.message);
 
