@@ -55,9 +55,8 @@ define(['./checks'], function (checks) {
         // to compose?
 
         if (link) {
-          // Prepend href protocol if missing
 
-          if (! urlProtocolRegExp.test(link) && ! mailtoProtocolRegExp.test(link) && ! telProtocolRegExp.test(link) ) {
+          if (! checks.hasKnownProtocol(link) ) {
             // For emails we just look for a `@` symbol as it is easier.
             // For tel numbers check for + and numerical values
             if (/@/.test(link)) {
@@ -70,7 +69,7 @@ define(['./checks'], function (checks) {
               }
             } else if (/\+\d+/.test(link)) {
               var shouldPrefixTel = window.confirm(
-                'The URL you entered appears to be a telephone number.' +
+                'The URL you entered appears to be a telephone number. ' +
                 'Do you want to add the required “tel:” prefix?'
               );
               if (shouldPrefixTel) {
