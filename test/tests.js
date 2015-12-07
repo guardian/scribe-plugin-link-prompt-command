@@ -35,4 +35,26 @@ describe('Checks', function() {
       });
     });
   });
+
+  describe('protocols', function() {
+    it('should recognise http as known', function() {
+      assert.isTrue(checks.hasKnownProtocol('http://www.example.com'));
+    });
+
+    it('should recognise https as known', function() {
+      assert.isTrue(checks.hasKnownProtocol('https://www.example.com'));
+    });
+
+    it('should recognise mailto as known', function() {
+      assert.isTrue(checks.hasKnownProtocol('mailto:user@example.com'));
+    });
+
+    it('should recognise tel as known', function() {
+      assert.isTrue(checks.hasKnownProtocol('tel:+447563234567'));
+    });
+
+    it('should not recognise ftp as known', function() {
+      assert.isFalse(checks.hasKnownProtocol('ftp://ftp.example.com'));
+    })
+  });
 });
