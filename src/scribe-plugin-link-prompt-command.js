@@ -1,5 +1,7 @@
 
-define(['./checks'], function (checks) {
+define(['./checks',
+  './init',
+  './transforms'], function (checks, init, transforms) {
 
   /**
    * This plugin adds a command for creating links, including a basic prompt.
@@ -8,7 +10,7 @@ define(['./checks'], function (checks) {
   'use strict';
 
   return function (options) {
-    var options = options || {};
+    var options = init.init(options);
 
     return function (scribe) {
       var linkPromptCommand = new scribe.api.Command('createLink');
@@ -30,6 +32,8 @@ define(['./checks'], function (checks) {
         } else {
           link = passedLink;
         }
+
+        link = transforms.run(options.transforms.pre, link);
 
         if(!checks.emptyLink(link)) {
           window.alert('This link appears empty');
@@ -85,6 +89,8 @@ define(['./checks'], function (checks) {
               }
             }
           }
+
+          link = transforms.run(options.transforms.post, link);
 
           scribe.api.SimpleCommand.prototype.execute.call(this, link);
         }
