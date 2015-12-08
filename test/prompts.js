@@ -46,8 +46,10 @@ describe('Email links', function() {
 describe('Telephone links', function() {
   describe('add the tel protocol', function() {
     it('if user agrees', function() {
-      var result = prompts.process(fakeAgreeableWindow, '+447805123456');
-      assert.equal(result, 'tel:+447805123456');
+      ['+447805123456', '12345678'].forEach(function(exampleNumber) {
+        var result = prompts.process(fakeAgreeableWindow, exampleNumber);
+        assert.equal(result, 'tel:' + exampleNumber);
+      });
     });
 
     it('but not if the user disagrees', function() {
