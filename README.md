@@ -15,6 +15,14 @@ The `validation` key can be given a function that takes a string representing a 
   }
 ```
 
+### Transformation
+
+The `transformation` key holds two optional keys: `pre` and `post`. Each one contains an array of transform functions that take a String representing the link value and should return a String that is transformed value of the link.
+
+The transformations are processed "left to right" or in ascending index order.
+
+`pre` transforms are applied before validation. `post` transforms are applied just before the link value is inserted into the DOM.
+
 ## Testing
 
 Run unit tests with the following:
