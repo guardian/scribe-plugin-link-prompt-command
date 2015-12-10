@@ -1,7 +1,9 @@
 
 define(['./checks',
   './init',
-  './transforms'], function (checks, init, transforms) {
+  './prompts',
+  './transforms'], function (checks, init, prompts, transforms) {
+
 
   /**
    * This plugin adds a command for creating links, including a basic prompt.
@@ -55,39 +57,10 @@ define(['./checks',
           selection.selection.addRange(range);
         }
 
-        // FIXME: I don't like how plugins like this do so much. Is there a way
-        // to compose?
-
         if (link) {
 
           if (! checks.hasKnownProtocol(link) ) {
-            // For emails we just look for a `@` symbol as it is easier.
-            // For tel numbers check for + and numerical values
-            if (/@/.test(link)) {
-              var shouldPrefixEmail = window.confirm(
-                'The URL you entered appears to be an email address. ' +
-                'Do you want to add the required “mailto:” prefix?'
-              );
-              if (shouldPrefixEmail) {
-                link = 'mailto:' + link;
-              }
-            } else if (/\+\d+/.test(link)) {
-              var shouldPrefixTel = window.confirm(
-                'The URL you entered appears to be a telephone number. ' +
-                'Do you want to add the required “tel:” prefix?'
-              );
-              if (shouldPrefixTel) {
-                link = 'tel:' + link;
-              }
-            } else {
-              var shouldPrefixLink = window.confirm(
-                'The URL you entered appears to be a link. ' +
-                'Do you want to add the required “http://” prefix?'
-              );
-              if (shouldPrefixLink) {
-                link = 'http://' + link;
-              }
-            }
+            link = prompts.process(window, link);
           }
 
           link = transforms.run(options.transforms.post, link);
