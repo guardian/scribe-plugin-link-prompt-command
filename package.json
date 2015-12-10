@@ -1,6 +1,6 @@
 {
   "name": "scribe-plugin-link-prompt-command",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "main": "src/scribe-plugin-link-prompt-command.js",
   "dependencies": {
    },

@@ -1,3 +1,9 @@
+# 1.0.0
+
+Adds a transforms key that allows transformations of the link value before validation and after user interactions.
+
+Adds additional tests to define the behaviour of the plugin and therefore the functionality of the plugin is considered no longer in active development.
+
 # 0.4.0
 
 Adds support for telephone number guessing and the `tel` protocol.
