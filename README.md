@@ -2,6 +2,10 @@
 
 A Scribe plugin to simplify the process of adding valid urls in links.
 
+## Status
+
+[![Circle CI](https://circleci.com/gh/guardian/scribe-plugin-link-prompt-command.svg?style=svg&circle-token=8f3adca3a27c9e3007b23a51383509ff8ea14ee9)](https://circleci.com/gh/guardian/scribe-plugin-link-prompt-command)
+
 ## Options
 
 ### Validation
